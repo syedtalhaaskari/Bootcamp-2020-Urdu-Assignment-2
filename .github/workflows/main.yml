@@ -38,4 +38,4 @@ jobs:
         run: npm install -g surge
         
       - name: deploying on surge
-        run: surge ./build normal-lamp.surge.sh 96423f018adc809ac6aab53468851443
+        run: surge ./build http://normal-lamp.surge.sh/ --token 96423f018adc809ac6aab53468851443
