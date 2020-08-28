@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Assignment 2
+name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -24,13 +24,18 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           version: 12 
+
       - name: Github Action for Yarn
         uses: Borales/actions-yarn@v2.1.0
         with:
-          cmd: install
+          # Yarn command
+          cmd: install # npm install/ yarn install
       
       - name: Creating Build
         run: yarn build
+
+      - name: installing surge
+        run: npm install -g surge
         
       - name: deploying on surge
         run: surge ./build normal-lamp.surge.sh 96423f018adc809ac6aab53468851443
